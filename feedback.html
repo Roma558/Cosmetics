@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Клиника косметологии "Гармония" - Записаться на прием</title>
+  <link rel="stylesheet" type="text/css" href="my_styles.css">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+  <header>
+    <img src="images/Logo.jpg" id="logo" align="center">
+    <h1>Гармония</h1>
+    <div class="subtitle">Клиника косметологии в Москве</div>
+  </header>
+  <div id="content">
+    <div id="menu">
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="price.html">Услуги и цены</a></li>
+        <li><a href="raboti.html">Наши работы</a></li>
+        <li><a href="feedback.html" class="active">Записаться на прием</a></li>
+        <li><a href="kontakti.html">Контакты</a></li>
+      </ul>
+    </div>
+    <div id="article">
+      <h2>Записаться на прием</h2>
+      
+      <!-- Отображение сообщений об успехе -->
+      <?php if (isset($_GET['success'])): ?>
+        <div style='margin-top: 20px; padding: 10px; background: rgba(212, 165, 181, 0.2); border-radius: 5px;'>
+          <p style='color: #5d3a4e; font-weight: bold;'><?php echo htmlspecialchars($_GET['success']); ?></p>
+        </div>
+      <?php endif; ?>
+      
+      <!-- Отображение сообщений об ошибках -->
+      <?php if (isset($_GET['error'])): ?>
+        <div style='margin-top: 20px; padding: 10px; background: #ffebee; border-radius: 5px;'>
+          <p style='color: #c62828;'><?php echo htmlspecialchars($_GET['error']); ?></p>
+        </div>
+      <?php endif; ?>
+      
+      <form name="form1" method="post" action="feedback.php"> 
+        <p>Имя: <input type="text" name="sirname" required></p> 
+        <p>Ваш Email: <input type="email" name="email" required></p>
+        <p>Номер телефона: <input type="text" name="phone" required></p>
+        <p><input type="submit" name="send" value="Отправить"></p>
+      </form>
+    </div>
+  </div>
+  <footer>Все права защищены © 2004-2025 Клиника косметологии "Гармония"</footer>
+</body>
+
+</html>
